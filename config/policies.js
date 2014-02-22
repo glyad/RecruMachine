@@ -55,6 +55,7 @@ module.exports.policies = {
  *	+ BasicAuth
  *	+ or any other kind of authentication scheme you can imagine
  *
+ *
  */
 
 /*
