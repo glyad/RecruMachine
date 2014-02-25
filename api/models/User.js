@@ -6,6 +6,18 @@
  * @docs		:: http://sailsjs.org/#!documentation/models
  */
 
+var bcrypt = require('bcrypt');
+
+function hashPassword(values, next) {
+    bcrypt.hash(values.password, 10, function(err, hash) {
+        if (err) {
+            return next(err);
+        }
+        values.password = hash;
+        next();
+    });
+}
+
 module.exports = {
 
   attributes: {
@@ -29,6 +41,7 @@ module.exports = {
       role : {
           type : 'string' /* system, administrator, recruiter */
       }
+
 
 
     
